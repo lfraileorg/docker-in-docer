@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # [Choice] .NET version: 5.0, 3.1, 2.1
 ARG VARIANT=3.1
 FROM mcr.microsoft.com/vscode/devcontainers/dotnet:0-${VARIANT}
@@ -6,6 +7,11 @@ FROM mcr.microsoft.com/vscode/devcontainers/dotnet:0-${VARIANT}
 ARG NODE_VERSION="none"
 RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
+=======
+# Note: You can use any Debian/Ubuntu based image you want. 
+FROM mcr.microsoft.com/vscode/devcontainers/javascript-node
+
+>>>>>>> b72fe026b9f28e6fbca4772a33021e4c43cbaa33
 # Install Docker CE CLI
 RUN apt-get update \
     && apt-get install -y apt-transport-https ca-certificates curl gnupg2 lsb-release \
@@ -18,6 +24,7 @@ RUN apt-get update \
 RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/compose/releases/latest" | grep -o -P '(?<="tag_name": ").+(?=")') \
     && curl -sSL "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
+<<<<<<< HEAD
 
 
 # # [Option] Install Azure CLI
@@ -32,3 +39,5 @@ RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/comp
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
+=======
+>>>>>>> b72fe026b9f28e6fbca4772a33021e4c43cbaa33
