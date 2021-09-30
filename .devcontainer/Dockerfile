@@ -1,5 +1,5 @@
 # Note: You can use any Debian/Ubuntu based image you want. 
-FROM mcr.microsoft.com/vscode/devcontainers/base:bullseye
+FROM mcr.microsoft.com/vscode/devcontainers/javascript-node
 
 # Install Docker CE CLI
 RUN apt-get update \
